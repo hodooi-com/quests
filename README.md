@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PointFi Starter Kit
 
-## Getting Started
+## Purpose
 
-First, run the development server:
+The PointFi Starter Kit is a boilerplate project designed to help businesses launch their own gamified web3 applications. It includes a Next.js frontend with TypeScript, Tailwind CSS, and React Query, as well as a Liteflow SDK backend to manage quests and leaderboards.
+
+## Features
+
+- **Quests:** Display a list of quests that users can complete to earn points.
+- **Leaderboard:** Show a leaderboard of users with the most points.
+- **Profile:** Display a user's profile with their points and completed quests.
+
+## Setup
+
+Follow these steps to set up the project:
+
+### Clone the repository:
+
+```bash
+git clone https://github.com/liteflow-labs/pointfi-starter-kit.git
+cd pointfi-starter-kit
+```
+
+### Install dependencies:
+
+```bash
+npm install
+```
+
+### Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build the application:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Start the production server:
 
-## Learn More
+```bash
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project uses environment variables to configure the frontend and backend. Create a `.env.local` file in the root of the project and add the following variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Create your project ID on https://reown.com/
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=
 
-## Deploy on Vercel
+# Create your Liteflow API key on https://dashboard.liteflow.com/developers
+NEXT_PUBLIC_LITEFLOW_API_KEY=
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The UI is built with [Tailwind CSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/), so you can customize the styles by editing the `tailwind.config.js` file and by importing components from the `shadcn/ui` library.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application uses [Wagmi](https://wagmi.sh/) and [RainbowKit](https://www.rainbowkit.com/) for wallet connection.
+
+## Deployment
+
+The project is designed to be deployed to Vercel. You can deploy the project by connecting your GitHub repository to Vercel and configuring the environment variables in the Vercel dashboard.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/liteflow-labs/pointfi-starter-kit)
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
+
+## License
+
+This project is licensed under the MIT License.
