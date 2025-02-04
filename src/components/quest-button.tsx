@@ -38,7 +38,7 @@ export function QuestButton({ quest }: Props) {
   if (!account.address) return null;
   if (createAchievement.isPending) return <Button disabled>Claiming...</Button>;
   return (
-    <Button onClick={submit}>
+    <Button onClick={submit} className="hover:bg-primary">
       <Reward quest={quest} />
     </Button>
   );
