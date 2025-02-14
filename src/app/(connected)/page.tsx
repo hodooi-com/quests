@@ -24,8 +24,6 @@ export default function Home() {
     if (account.status === "disconnected") router.replace("/login");
   }, [account, router]);
 
-  if (account.isReconnecting) return null;
-
   return (
     <div className="grid grid-cols-3 gap-6">
       <Leaderboard />
