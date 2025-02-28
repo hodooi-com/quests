@@ -16,7 +16,7 @@ export default function useCreateAchievement() {
       address: string;
       questId: string;
     }) => {
-      const res = await liteflow.achivements.create({
+      const res = await liteflow.achievements.create({
         questId,
         userAddress: address,
       });
