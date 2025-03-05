@@ -10,7 +10,7 @@ export default function useLeaderboardPosition(address: string | undefined) {
   return useQuery({
     queryFn: async () => {
       if (!address) throw new Error("Address is required");
-      const res = await liteflow.leaderboard.retrieve({ address });
+      const res = await liteflow.leaderboard.retrieve(address);
       if (res.error) throw new Error(res.error.message);
       return res.data;
     },
