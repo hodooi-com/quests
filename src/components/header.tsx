@@ -17,8 +17,8 @@ export function Header() {
               {user.isLoading
                 ? "-"
                 : user.isError
-                ? "0"
-                : user.data?.points.toString() || "0"}
+                  ? "0"
+                  : user.data?.points.toString() || "0"}
             </div>
           </div>
         </div>
