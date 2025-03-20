@@ -10,6 +10,7 @@ export function ENSName({ address }: Props) {
   const wallet = useAccount();
   const name = useEnsName({
     address: address ? (address as `0x${string}`) : wallet.address,
+    chainId: 1,
   });
 
   if (name.data) return name.data;
