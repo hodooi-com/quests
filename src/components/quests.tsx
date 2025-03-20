@@ -39,7 +39,7 @@ export default function Quests() {
 
           {quests.data?.data?.map((quest) => (
             <li key={quest.id}>
-              <div className="flex flex-col md:flex-row md:items-center justify-between p-4 gap-4">
+              <div className="flex flex-col justify-between gap-4 p-4 md:flex-row md:items-center">
                 <div>
                   <div>{quest.title}</div>
                   {quest.description && (

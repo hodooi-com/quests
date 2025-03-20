@@ -16,7 +16,7 @@ export default function Home() {
   }, [account, router]);
 
   return (
-    <div className="grid md:grid-cols-3 gap-6">
+    <div className="grid gap-6 md:grid-cols-3">
       <div className="md:col-span-2">
         <Quests />
       </div>

@@ -10,12 +10,12 @@ export function Header() {
 
   return (
     <header className="border-b bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-4 md:py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto flex flex-col md:flex-row max-w-2xl items-center justify-between gap-4 md:gap-8 lg:mx-0 lg:max-w-none">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 md:py-10 lg:px-8">
+        <div className="mx-auto flex max-w-2xl flex-col items-center justify-between gap-4 md:flex-row md:gap-8 lg:mx-0 lg:max-w-none">
           <div className="flex items-center gap-4 md:gap-x-6">
             <WalletAvatar />
             <h1 className="shrink-0">
-              <div className="flex font-semibold leading-6 gap-2">
+              <div className="flex gap-2 font-semibold leading-6">
                 <ENSName address={address} />
                 {user.data && (
                   <div className="text-muted-foreground">
@@ -23,7 +23,7 @@ export function Header() {
                   </div>
                 )}
               </div>
-              <div className="mt-1 text-sm leading-6 text-muted-foreground hidden md:block">
+              <div className="mt-1 hidden text-sm leading-6 text-muted-foreground md:block">
                 {address}
               </div>
             </h1>
@@ -34,8 +34,8 @@ export function Header() {
               {user.isLoading
                 ? "-"
                 : user.isError
-                ? "0"
-                : user.data?.points.toString() || "0"}
+                  ? "0"
+                  : user.data?.points.toString() || "0"}
             </div>
           </div>
         </div>
