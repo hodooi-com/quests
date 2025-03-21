@@ -37,7 +37,7 @@ export default function Quests() {
             </li>
           )}
 
-          {quests.data?.data?.map((quest) => (
+          {quests.data?.data.map((quest) => (
             <li key={quest.id}>
               <div className="flex flex-col justify-between gap-4 p-4 md:flex-row md:items-center">
                 <div>
