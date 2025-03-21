@@ -22,7 +22,7 @@ export default function useCreateAchievement() {
       });
       if (res.error) throw new Error(res.error.message);
       if (res.data.redirect) {
-        await router.push(res.data.redirect);
+        router.push(res.data.redirect);
         return;
       }
 

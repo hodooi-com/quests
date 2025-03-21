@@ -1,15 +1,15 @@
 "use client";
 
-import { useAccount, useEnsName } from "wagmi";
+import { getAddress } from "viem";
+import { useEnsName } from "wagmi";
 
 type Props = {
-  address?: string;
+  address: string | undefined;
 };
 
 export function ENSName({ address }: Props) {
-  const wallet = useAccount();
   const name = useEnsName({
-    address: address ? (address as `0x${string}`) : wallet.address,
+    address: address ? getAddress(address) : undefined,
     chainId: 1,
   });
 
