@@ -69,7 +69,9 @@ export default function Quests() {
         <CardFooter className="flex w-full justify-between gap-4">
           {quests.data.pagination.previousPage ? (
             <Button variant="ghost" disabled={quests.isPending} asChild>
-              <Link href={"?page=" + quests.data.pagination.previousPage}>
+              <Link
+                href={`?page=${quests.data.pagination.previousPage.toString()}`}
+              >
                 <ChevronLeftIcon />
                 Previous
               </Link>
@@ -79,7 +81,9 @@ export default function Quests() {
           )}
           {quests.data.pagination.nextPage ? (
             <Button variant="ghost" disabled={quests.isPending} asChild>
-              <Link href={"?page=" + quests.data.pagination.nextPage}>
+              <Link
+                href={`?page=${quests.data.pagination.nextPage.toString()}`}
+              >
                 Next <ChevronRightIcon />
               </Link>
             </Button>
