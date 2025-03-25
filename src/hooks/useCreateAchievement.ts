@@ -1,6 +1,5 @@
 import { leaderboardQueryKey } from "@/hooks/useLeaderboard";
 import { leaderboardPositionQueryKey } from "@/hooks/useLeaderboardPosition";
-import { questsQueryKey } from "@/hooks/useQuests";
 import { default as liteflow } from "@/lib/liteflow";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
@@ -28,7 +27,7 @@ export default function useCreateAchievement() {
 
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: leaderboardQueryKey() }),
-        queryClient.invalidateQueries({ queryKey: questsQueryKey(address) }),
+        queryClient.invalidateQueries({ queryKey: ["quests"] }),
         queryClient.invalidateQueries({
           queryKey: leaderboardPositionQueryKey(address),
         }),
