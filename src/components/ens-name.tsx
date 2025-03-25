@@ -1,5 +1,6 @@
 "use client";
 
+import { getAddress } from "viem";
 import { useEnsName } from "wagmi";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 
 export function ENSName({ address }: Props) {
   const name = useEnsName({
-    address: address ? (address as `0x${string}`) : wallet.address,
+    address: address ? getAddress(address) : undefined,
     chainId: 1,
   });
 
