@@ -1,17 +1,28 @@
 import { QuestButton } from "@/components/quest-button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import useQuests from "@/hooks/useQuests";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 import { useAccount } from "wagmi";
 
 export default function Quests() {
   const account = useAccount();
-  const quests = useQuests(account.address);
+  const searchParams = useSearchParams();
+  const page = useMemo(
+    () => Number(searchParams.get("page")) || 1,
+    [searchParams]
+  );
+  const quests = useQuests(account.address, page);
   return (
     <Card>
       <CardHeader>
@@ -54,6 +65,29 @@ export default function Quests() {
           ))}
         </ul>
       </CardContent>
+      {quests.data && quests.data.pagination.pageCount > 0 && (
+        <CardFooter className="flex w-full justify-between gap-4">
+          {quests.data.pagination.previousPage ? (
+            <Button variant="ghost" disabled={quests.isPending} asChild>
+              <Link href={"?page=" + quests.data.pagination.previousPage}>
+                <ChevronLeftIcon />
+                Previous
+              </Link>
+            </Button>
+          ) : (
+            <span />
+          )}
+          {quests.data.pagination.nextPage ? (
+            <Button variant="ghost" disabled={quests.isPending} asChild>
+              <Link href={"?page=" + quests.data.pagination.nextPage}>
+                Next <ChevronRightIcon />
+              </Link>
+            </Button>
+          ) : (
+            <span />
+          )}
+        </CardFooter>
+      )}
     </Card>
   );
 }
